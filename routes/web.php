@@ -14,5 +14,26 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    $data = [
+        'navData' => [
+            [
+                'linkName' => 'Contatti',
+                'pgName' => 'contatti',
+            ],
+            [
+                'linkName' => 'Info',
+                'pgName' => 'info',
+            ]
+        ]
+
+    ];
+    return view('welcome', $data);
+})->name('homepage');
+
+Route::get('/contatti', function () {
+    return view('contatti');
+})->name('contatti');
+
+Route::get('/info', function () {
+    return view('info');
+})->name('info');
